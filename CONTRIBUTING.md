@@ -34,7 +34,7 @@ For a definition (we'll use `List.map` as an example), here's where to put the d
 * `List.map.examples.ex1` or `List.map.examples.moreDescriptiveName` are examples (which might be used by the documentation).
 * `List.map.tests.ex1`, `List.map.tests.someBetterName` are named tests for `List.map`.
 
-We put the docs, examples, and tests right next to the corresponding definitions for a couple reasons:
+We put the docs, examples, and tests right next to the corresponding definitions for a couple of reasons:
 
 * It plays well with [suffix-based name resolution](https://www.unisonweb.org/docs/language-reference/#suffix-based-name-resolution) since the tests, examples, and docs don't share a suffix with the original definition.
 * It's a bit easier to do slicing and dicing of libraries when the definitions and their tests and examples are all together under a single namespace.
