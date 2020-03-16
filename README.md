@@ -1,6 +1,6 @@
 # Unison base libraries
 
-This includes basic data types and functions for the [Unison](http://unisonweb.org) language.
+This includes basic data types and functions for the [Unison](http://unisonweb.org) language. See [CONTRIBUTING.md](/CONTRIBUTING.md) for how to contribute.
 
 ## Installation
 
