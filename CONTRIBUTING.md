@@ -53,3 +53,10 @@ This isn't a complete list, but here are some ideas for contributions you can ma
 Unlike other languages, where changing the standard library involves everyone downstream enduring a tedious upgrade cycle, definitions in Unison never change and are always valid once they are created. If we change the naming conventions or shuffle definitions around later, that's no big deal and doesn't break anyone's code. It's also not a problem for definitions to start out here in base and perhaps later get broken out into separate libraries--none of the downstream code which obtained the definitions from here originally will break.
 
 We hope this also means there's less need for [bikeshedding about small details](https://en.wikipedia.org/wiki/Law_of_triviality), because changing small things like naming and organization later is easy.
+
+## Known issues
+
+At this time, there is a restriction on having *operators* be part of namespaces. To circumvent this limitation:
+* create your function as a non-operator named entity
+* proceed with examples, tests and documentation as described earlier in this document
+* use `term.alias` to alias the non-operator name to the operator name of your choice.
