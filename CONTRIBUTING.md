@@ -56,7 +56,25 @@ We hope this also means there's less need for [bikeshedding about small details]
 
 ## Known issues
 
-At this time, there is a restriction on having *operators* be part of namespaces. To circumvent this limitation:
-* create your function as a non-operator named entity
-* proceed with examples, tests and documentation as described earlier in this document
-* use `term.alias` to alias the non-operator name to the operator name of your choice.
+At this time, there is a restriction on having *operators* be part of namespaces. To circumvent this limitation, after creating your function and adding [documentation](https://www.unisonweb.org/docs/documentation/) and examples, **alias** the function with the operator name of your choice.
+```
+inc : Nat -> Nat
+inc x = x + 1
+
+inc.doc = [:
+  `inc` increments a Nat.
+  It exists as a workaround for the `++` operator.
+:]
+```
+Then in the codemanager:
+```
+.> link inc.doc inc
+
+  Updates:
+  
+    1. inc : Nat -> Nat
+       + 2. doc : Doc
+.> alias.term inc .some.namespace.(++)
+
+  Done.
+```
