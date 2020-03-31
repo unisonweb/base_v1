@@ -53,3 +53,28 @@ This isn't a complete list, but here are some ideas for contributions you can ma
 Unlike other languages, where changing the standard library involves everyone downstream enduring a tedious upgrade cycle, definitions in Unison never change and are always valid once they are created. If we change the naming conventions or shuffle definitions around later, that's no big deal and doesn't break anyone's code. It's also not a problem for definitions to start out here in base and perhaps later get broken out into separate libraries--none of the downstream code which obtained the definitions from here originally will break.
 
 We hope this also means there's less need for [bikeshedding about small details](https://en.wikipedia.org/wiki/Law_of_triviality), because changing small things like naming and organization later is easy.
+
+## Known issues
+
+At this time, there is a restriction on having *operators* be part of namespaces. To circumvent this limitation, after creating your function and adding [documentation](https://www.unisonweb.org/docs/documentation/) and examples, **alias** the function with the operator name of your choice.
+```
+inc : Nat -> Nat
+inc x = x + 1
+
+inc.doc = [:
+  `inc` increments a Nat.
+  It exists as a workaround for the `++` operator.
+:]
+```
+Then in the codemanager:
+```
+.> link inc.doc inc
+
+  Updates:
+  
+    1. inc : Nat -> Nat
+       + 2. doc : Doc
+.> alias.term inc .some.namespace.(++)
+
+  Done.
+```
