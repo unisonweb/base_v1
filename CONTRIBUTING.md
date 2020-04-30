@@ -68,6 +68,8 @@ We hope this also means there's less need for [bikeshedding about small details]
 
 ## Known issues
 
+### Tests and docs can't go under operators
+
 At this time, there is a restriction on having *operators* be part of namespaces. To circumvent this limitation, after creating your function and adding [documentation](https://www.unisonweb.org/docs/documentation/) and examples, **alias** the function with the operator name of your choice.
 ```
 inc : Nat -> Nat
@@ -90,3 +92,9 @@ Then in the codemanager:
 
   Done.
 ```
+
+### It's currently annoying to update documentation that's already been linked to definitions
+
+Currently, if you've already linked documentation to a definition, updating that documentation doesn't unlink the old docs and link in the new version, so you have to do that manually. Not great. See [this issue](https://github.com/unisonweb/unison/issues/1497).
+
+Until this issue is fixed, you might want to hold off on linking documentation to the definitions until you're pretty happy with it.
